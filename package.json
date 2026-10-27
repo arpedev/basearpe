@@ -1,0 +1,12 @@
+{
+  "name": "portarpe",
+  "version": "1.0.0",
+  "description": "Portafolio Creativo y Dossier Profesional de Agustín R. Pérez (ARPE)",
+  "scripts": {
+    "build:css": "tailwindcss -i ./input.css -o ./tailwind.min.css --minify",
+    "watch:css": "tailwindcss -i ./input.css -o ./tailwind.min.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}

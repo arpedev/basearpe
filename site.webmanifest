@@ -1,0 +1,16 @@
+{
+  "name": "Agustín R. Pérez | ARPE Estudio",
+  "short_name": "ARPE",
+  "description": "Filmmaker, Comunicación Estratégica & Desarrollo Web",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#060D1A",
+  "theme_color": "#1849FF",
+  "icons": [
+    {
+      "src": "img/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

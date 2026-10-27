@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agustín R. Pérez | Filmmaker, Comunicación Estratégica &amp; Desarrollo Web - ARPE</title>
+  <meta name="description"
+    content="Historias que conectan, narrativa cinematográfica y tecnología web sólida. Descubrí el portafolio y los servicios de Agustín R. Pérez (ARPE)." />
+  <!-- Favicons & App Manifest -->
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg" />
+  <link rel="manifest" href="site.webmanifest" />
+  <meta name="theme-color" content="#1849FF" />
+
+  <!-- Canonical & Social Metadata (Open Graph & Twitter Cards) -->
+  <link rel="canonical" href="https://arpe.ar/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://arpe.ar/" />
+  <meta property="og:title" content="Agustín R. Pérez | Filmmaker, Comunicación Estratégica &amp; Desarrollo Web - ARPE" />
+  <meta property="og:description" content="Historias que conectan, narrativa cinematográfica y tecnología web sólida. Descubrí el portafolio y los servicios de Agustín R. Pérez (ARPE)." />
+  <meta property="og:image" content="https://arpe.ar/img/hero-arpe.webp" />
+  <meta property="og:site_name" content="ARPE Estudio Creativo" />
+  <meta property="og:locale" content="es_AR" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Agustín R. Pérez | ARPE" />
+  <meta name="twitter:description" content="Filmmaker, Comunicación Estratégica &amp; Desarrollo Web" />
+  <meta name="twitter:image" content="https://arpe.ar/img/hero-arpe.webp" />
+
+  <!-- Structured Data (JSON-LD) for Search Engines -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Agustín R. Pérez",
+    "alternateName": "ARPE",
+    "jobTitle": [
+      "Filmmaker",
+      "Coordinador de Comunicación y Prensa",
+      "Profesor de Programación Web y UX/UI",
+      "Técnico Universitario en Programación"
+    ],
+    "worksFor": {
+      "@type": "Organization",
+      "name": "ARPE Estudio Creativo",
+      "url": "https://instagram.com/arpe.ar"
+    },
+    "alumniOf": {
+      "@type": "EducationalOrganization",
+      "name": "Universidad Tecnológica Nacional (UTN)"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "La Matanza",
+      "addressRegion": "Buenos Aires",
+      "addressCountry": "AR"
+    },
+    "description": "Historias que conectan, narrativa cinematográfica y tecnología web sólida.",
+    "sameAs": [
+      "https://instagram.com/agustinrperez",
+      "https://instagram.com/arpe.ar"
+    ]
+  }
+  </script>
+
+  <!-- High-Performance Compiled Stylesheets -->
+  <link rel="stylesheet" href="tailwind.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Google Fonts Preconnect & Display Swap -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+
+  <!-- Core Dynamic UI Libraries (Deferred & Non-Blocking) -->
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.17/dist/lenis.css" />
+  <script src="https://unpkg.com/lenis@1.3.17/dist/lenis.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js" defer></script>
+</head>
+
+<body class="selection:bg-blue-600 selection:text-white">
+  <!-- Custom Dynamic Magnetic Cursor -->
+  <div id="custom-cursor-dot"
+    class="fixed top-0 left-0 w-2 h-2 rounded-full bg-[#1849FF] pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 transition-opacity duration-300 opacity-0 hidden md:block">
+  </div>
+  <div id="custom-cursor-ring"
+    class="fixed top-0 left-0 w-10 h-10 rounded-full border border-[#1849FF]/60 pointer-events-none z-[9998] -translate-x-1/2 -translate-y-1/2 transition-[width,height,background-color,border-color,transform] duration-150 ease-out opacity-0 hidden md:flex items-center justify-center">
+    <span id="custom-cursor-badge"
+      class="opacity-0 scale-75 transition-all duration-200 text-[10px] font-mono font-bold text-white whitespace-nowrap pointer-events-none"></span>
+  </div>
+
+
+  <!-- FIXED SOFT INNER BLUE VIGNETTE FRAME (100% faithful to video border glow) -->
+  <div class="viewport-vignette-frame"></div>
+
+  <!-- COPY EMAIL TOAST -->
+  <div id="toast-notification"
+    class="fixed bottom-6 right-6 z-[95] pointer-events-none opacity-0 translate-y-3 transition-all duration-300">
+    <div
+      class="bg-[#1849FF] text-white px-5 py-3 rounded-full shadow-2xl flex items-center gap-2.5 text-xs font-medium tracking-wide">
+      <span class="w-2 h-2 rounded-full bg-sky-300 animate-ping"></span>
+      <span id="toast-message">Contacto copiado al portapapeles</span>
+    </div>
+  </div>
+
+  <!-- =================================================================== -->
+  <!-- FIXED TOP NAVIGATION BAR                                            -->
+  <!-- Left: Agustín • Pérez | Center: [About] [ARPE] [Work] | Right: Email ig arpe in -->
+  <!-- =================================================================== -->
+  <header id="main-header"
+    class="fixed top-0 left-0 right-0 z-50 px-6 sm:px-10 py-5 pointer-events-none transition-all duration-300">
+    <div class="w-full flex items-center justify-between">
+      <!-- Top-Left: Agustín • Pérez -->
+      <button type="button" data-nav="home" id="nav-btn-home"
+        class="nav-trigger pointer-events-auto text-left font-display font-bold text-base sm:text-lg tracking-tight text-[#BAE6FD] hover:text-[#38BDF8] transition-colors flex items-center gap-2 drop-shadow">
+        <span class="char-roll" data-stagger="Agustín">Agustín</span>
+        <span class="text-xs text-[#38BDF8]">•</span>
+        <span class="char-roll" data-stagger="Pérez">Pérez</span>
+      </button>
+
+      <!-- Top-Center: [Sobre mí] [ARPE] [Proyectos] pills (Desktop only) -->
+      <nav class="hidden md:flex pointer-events-auto items-center gap-2" aria-label="Primary Navigation">
+        <button type="button" data-nav="about" id="nav-btn-about"
+          class="nav-trigger glass-nav-pill">
+          <span class="char-roll" data-stagger="Sobre mí">Sobre mí</span>
+        </button>
+
+        <!-- Center Square Monogram Icon "ARPE" -->
+        <button type="button" data-nav="home" id="center-monogram-btn"
+          class="nav-trigger glass-monogram-btn flex items-center justify-center font-black text-[9px] tracking-tighter"
+          title="Agustín R. Pérez (ARPE)">
+          ARPE
+        </button>
+
+        <button type="button" data-nav="work" id="nav-btn-work"
+          class="nav-trigger glass-nav-pill">
+          <span class="char-roll" data-stagger="Proyectos">Proyectos</span>
+        </button>
+      </nav>
+
+      <!-- Top-Right: Desktop (Email ig arpe in) & Mobile Hamburger Button -->
+      <div class="pointer-events-auto flex items-center">
+        <!-- Desktop Social Glassmorphism Icons -->
+        <div class="hidden md:flex items-center gap-2.5">
+          <!-- Email / Contact -->
+          <button type="button" class="copy-email-btn social-icon-btn"
+            title="Copiar email / contacto" aria-label="Copiar email">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="20" height="16" x="2" y="4" rx="2" />
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+            </svg>
+          </button>
+          <!-- Instagram Personal (@agustinrperez) -->
+          <a href="https://instagram.com/agustinrperez" target="_blank" rel="noopener noreferrer"
+            class="social-icon-btn" title="Instagram Personal (@agustinrperez)" aria-label="Instagram Personal">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+              <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+            </svg>
+          </a>
+          <!-- Instagram Estudio (@arpe.ar) -->
+          <a href="https://instagram.com/arpe.ar" target="_blank" rel="noopener noreferrer"
+            class="social-icon-btn font-mono font-bold text-[11px] tracking-tight" title="Estudio Creativo (@arpe.ar)" aria-label="Estudio ARPE">
+            <span>arpe</span>
+          </a>
+          <!-- LinkedIn -->
+          <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer"
+            class="social-icon-btn" title="LinkedIn" aria-label="LinkedIn">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Mobile Hamburger Button (Mobile only) -->
+        <button type="button" id="mobile-menu-btn"
+          class="md:!hidden social-icon-btn flex flex-col justify-center items-center w-10 h-10 p-2 gap-1.5 focus:outline-none"
+          aria-label="Abrir menú" aria-expanded="false">
+          <span class="hamburger-line w-5 h-0.5 bg-current rounded-full transition-all duration-300"></span>
+          <span class="hamburger-line w-5 h-0.5 bg-current rounded-full transition-all duration-300"></span>
+          <span class="hamburger-line w-5 h-0.5 bg-current rounded-full transition-all duration-300"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Fullscreen / Drawer Menu Overlay -->
+    <div id="mobile-menu-overlay"
+      class="fixed inset-0 bg-[#060D1A]/95 backdrop-blur-2xl z-40 flex flex-col justify-between p-8 pt-28 transition-all duration-300 opacity-0 pointer-events-none -translate-y-4 md:!hidden">
+      <div class="flex flex-col gap-6">
+        <span class="text-xs font-mono uppercase tracking-widest text-[#38BDF8] font-bold">Navegación</span>
+        <div class="flex flex-col gap-4 text-3xl font-display font-bold text-white">
+          <button type="button" data-nav="home"
+            class="mobile-nav-link text-left hover:text-[#38BDF8] transition-colors">
+            Inicio
+          </button>
+          <button type="button" data-nav="about"
+            class="mobile-nav-link text-left hover:text-[#38BDF8] transition-colors">
+            Sobre mí (Dossier)
+          </button>
+          <button type="button" data-nav="work"
+            class="mobile-nav-link text-left hover:text-[#38BDF8] transition-colors">
+            Proyectos &amp; Casos
+          </button>
+        </div>
+      </div>
+
+      <div class="pt-8 border-t border-[#38BDF8]/20 flex flex-col gap-4">
+        <span class="text-xs font-mono uppercase tracking-widest text-[#38BDF8] font-bold">Contacto &amp; Redes</span>
+        <div class="flex items-center gap-3">
+          <!-- Email / Contact -->
+          <button type="button" class="copy-email-btn social-icon-btn"
+            title="Copiar email / contacto" aria-label="Copiar email">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="20" height="16" x="2" y="4" rx="2" />
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+            </svg>
+          </button>
+          <!-- Instagram Personal (@agustinrperez) -->
+          <a href="https://instagram.com/agustinrperez" target="_blank" rel="noopener noreferrer"
+            class="social-icon-btn" title="Instagram Personal (@agustinrperez)" aria-label="Instagram Personal">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+              <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+            </svg>
+          </a>
+          <!-- Instagram Estudio (@arpe.ar) -->
+          <a href="https://instagram.com/arpe.ar" target="_blank" rel="noopener noreferrer"
+            class="social-icon-btn font-mono font-bold text-[11px] tracking-tight" title="Estudio Creativo (@arpe.ar)" aria-label="Estudio ARPE">
+            <span>arpe</span>
+          </a>
+          <!-- LinkedIn -->
+          <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer"
+            class="social-icon-btn" title="LinkedIn" aria-label="LinkedIn">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- =================================================================== -->
+  <!-- VIEW 1: INDEX.HTML (100% IDENTICAL TO VIDEO IN BLUE PALETTE)        -->
+  <!-- =================================================================== -->
+  <main id="view-home" class="view-section">
+
+    <!-- 1. HERO SECTION (00:00 - 00:02 in video) -->
+    <section class="relative w-full h-screen min-h-[640px] flex flex-col justify-between overflow-hidden bg-[#060D1A]">
+      <!-- Studio Portrait of Agustín R. Pérez -->
+      <img data-asset="portrait" src="img/hero-arpe.webp" alt="Agustín R. Pérez"
+        class="absolute inset-0 w-full h-full object-cover object-center opacity-90" id="hero-bg-image" />
+      <!-- Atmospheric obsidian & sapphire color-grading overlay -->
+      <div
+        class="absolute inset-0 bg-gradient-to-t from-[#060D1A] via-[#0A1A38]/35 to-[#060D1A]/50 pointer-events-none">
+      </div>
+
+      <!-- Mid-Left Subtitle: "Narrativa audiovisual, estrategia digital & tecnología" -->
+      <div class="relative z-10 px-6 sm:px-10 pt-28 sm:pt-36">
+        <p
+          class="text-[#BAE6FD] font-display font-bold text-xl sm:text-3xl md:text-4xl leading-[1.12] tracking-tight drop-shadow-md max-w-2xl">
+          Narrativa audiovisual,<br />
+          <span class="text-white">estrategia digital &amp; tecnología</span>
+        </p>
+      </div>
+
+      <!-- Bottom Full-Viewport Billboard Wordmark: "Agustín Pérez" -->
+      <div class="relative z-10 px-4 sm:px-8 pb-7 sm:pb-10 w-full">
+        <h1 class="w-full flex items-start justify-between gap-4 font-normal">
+          <!-- "Agustín" -->
+          <span class="billboard-title text-[14vw] sm:text-[13.5vw] leading-[0.82] tracking-tighter">
+            Agustín
+          </span>
+
+          <!-- "Pérez" + "Filmmaker & Programador (UTN)" underneath -->
+          <span class="flex flex-col items-end text-right">
+            <span class="billboard-title text-[14vw] sm:text-[13.5vw] leading-[0.82] tracking-tighter">
+              Pérez
+            </span>
+            <span
+              class="text-[#7DD3FC] font-display font-semibold text-sm sm:text-2xl md:text-3xl tracking-tight mt-2 sm:mt-3 pr-1 drop-shadow-md">
+              Filmmaker &amp; Programador (UTN)
+            </span>
+          </span>
+        </h1>
+      </div>
+    </section>
+
+    <!-- 2. STATEMENT HEADLINE + FULL-BLEED SOFT-3D BLOB PLAYGROUND -->
+    <section id="statement-section"
+      class="relative w-full min-h-[92vh] flex flex-col justify-center items-center py-24 sm:py-32 overflow-hidden bg-[#F6F9FD]">
+
+      <!-- Full-bleed Soft-3D Bubbles and Geometric Shapes Canvas -->
+      <canvas id="blob-playground-canvas"
+        class="absolute inset-0 w-full h-full block z-10 cursor-grab active:cursor-grabbing"></canvas>
+
+      <!-- Statement Typography ("8 años / transformando ideas / [click] y scroll / que conectan") -->
+      <div class="relative z-20 max-w-5xl mx-auto px-6 pointer-events-none select-none">
+        <h2
+          class="font-display font-bold text-[11vw] sm:text-[76px] md:text-[92px] lg:text-[100px] leading-[1.01] tracking-[-0.04em] text-[#102244]">
+          <span class="block">8 años</span>
+          <span class="block">transformando ideas</span>
+          <span class="flex flex-wrap items-center gap-x-3 sm:gap-x-5 pointer-events-auto">
+            <span>en historias a un</span>
+            <!-- Solid Electric Cobalt Pill with White "click" -->
+            <button type="button" id="pill-click-btn"
+              class="inline-flex items-center justify-center px-7 sm:px-10 py-1 sm:py-2 rounded-full bg-[#1849FF] hover:bg-[#0F3BF0] text-white font-display font-bold transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0_6px_28px_rgba(24,73,255,0.45)] cursor-pointer">
+              click
+            </button>
+            <span>o un</span>
+            <!-- Electric Blue "scroll" text with vertical drip lines extending down from the 'll' -->
+            <span class="relative inline-flex items-baseline">
+              <button type="button" id="pill-scroll-btn"
+                class="text-[#1849FF] hover:text-[#38BDF8] font-display font-bold transition-colors cursor-pointer">
+                scroll
+              </button>
+              <!-- Vertical parallel blue lines dripping down into the 3D playground -->
+              <span
+                class="scroll-drip-lines absolute right-0.5 top-[88%] h-[280px] sm:h-[380px] z-10 pointer-events-none">
+                <span></span>
+                <span></span>
+              </span>
+            </span>
+          </span>
+          <span class="block mt-1">de distancia</span>
+        </h2>
+      </div>
+    </section>
+
+    <!-- 3. "ARPE • Soluciones Creativas / Ayudo a marcas, instituciones y proyectos a conectar mediante:" -->
+    <section id="services-section" class="w-full pt-16 pb-20 px-6 sm:px-12 bg-[#F6F9FD]">
+      <div class="relative max-w-[1360px] mx-auto pt-6 pb-4 mb-4">
+        <p class="text-xs sm:text-sm font-mono uppercase tracking-wider font-semibold text-[#2563EB] mb-3">Servicios
+          &amp; Especialidades</p>
+        <h2
+          class="font-display font-bold text-[8.5vw] sm:text-[64px] lg:text-[82px] leading-[0.98] tracking-[-0.04em] text-[#102244]">
+          Ayudo a <span class="text-[#1849FF]">marcas</span>, instituciones y<br />
+          <span class="text-[#1849FF]">proyectos</span> a comunicar quiénes son y <span class="text-[#1849FF]">conectar</span>:
+        </h2>
+      </div>
+
+      <!-- SERVICE BLOCK 1: Producción Audiovisual Integral -->
+      <div class="mt-24 sm:mt-32 max-w-[1400px] mx-auto">
+        <div class="text-center max-w-lg mx-auto mb-14">
+          <h3 class="font-display font-bold text-4xl sm:text-6xl md:text-[68px] leading-[0.98] tracking-tight">
+            <span class="text-[#1849FF]">Producción</span> <span class="text-[#102244]">Audiovisual</span><br />
+            <span class="text-[#1849FF]">Integral</span>
+          </h3>
+          <p class="mt-4 text-sm sm:text-base text-[#4B6382] leading-relaxed max-w-md mx-auto">
+            Realización integral de piezas institucionales, corporativas y de impacto, desde el guionado hasta la
+            postproducción y colorimetría.
+          </p>
+        </div>
+
+        <!-- 5-Card Horizontal Showcase Row 1 -->
+        <div class="cards-strip px-2">
+          <div
+            class="strip-card rounded-2xl overflow-hidden bg-gradient-to-br from-[#060D1A] to-[#102244] cursor-pointer open-project-modal shadow-sm flex flex-col justify-between p-5 border border-[#38BDF8]/30 group"
+            data-project-id="arpe-audiovisual">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono font-bold tracking-widest text-[#38BDF8]">01</span>
+              <span
+                class="w-2 h-2 rounded-full bg-[#38BDF8]/40 group-hover:bg-[#38BDF8] group-hover:shadow-[0_0_8px_#38BDF8] transition-all"></span>
+            </div>
+            <div>
+              <p class="text-[11px] font-mono uppercase tracking-wider text-[#7DD3FC]">Producción Integral</p>
+              <h4 class="text-lg font-display font-bold text-white mt-1 group-hover:text-[#38BDF8] transition-colors">
+                Videos Institucionales</h4>
+              <p class="text-xs text-slate-300 mt-1 line-clamp-2">Piezas dinámicas con narrativa visual y estética
+                moderna.</p>
+            </div>
+          </div>
+
+          <div
+            class="strip-card rounded-2xl overflow-hidden bg-gradient-to-br from-[#0A1A38] to-[#1849FF]/40 cursor-pointer open-project-modal shadow-sm flex flex-col justify-between p-5 border border-[#38BDF8]/30 group"
+            data-project-id="arpe-audiovisual">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono font-bold tracking-widest text-[#38BDF8]">02</span>
+              <span
+                class="w-2 h-2 rounded-full bg-[#38BDF8]/40 group-hover:bg-[#38BDF8] group-hover:shadow-[0_0_8px_#38BDF8] transition-all"></span>
+            </div>
+            <div>
+              <p class="text-[11px] font-mono uppercase tracking-wider text-[#7DD3FC]">Dirección &amp; Rodaje</p>
+              <h4 class="text-lg font-display font-bold text-white mt-1 group-hover:text-[#38BDF8] transition-colors">
+                Comerciales &amp; Marcas</h4>
+              <p class="text-xs text-slate-300 mt-1 line-clamp-2">Producción en terreno con dirección de fotografía
+                profesional.</p>
+            </div>
+          </div>
+
+          <div
+            class="strip-card rounded-2xl overflow-hidden bg-gradient-to-br from-[#102244] to-[#0A1A38] cursor-pointer open-project-modal shadow-sm flex flex-col justify-between p-5 border border-[#38BDF8]/30 group"
+            data-project-id="arpe-audiovisual">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono font-bold tracking-widest text-[#38BDF8]">03</span>
+              <span
+                class="w-2 h-2 rounded-full bg-[#38BDF8]/40 group-hover:bg-[#38BDF8] group-hover:shadow-[0_0_8px_#38BDF8] transition-all"></span>
+            </div>
+            <div>
+              <p class="text-[11px] font-mono uppercase tracking-wider text-[#7DD3FC]">Colorimetría &amp; Edición</p>
+              <h4 class="text-lg font-display font-bold text-white mt-1 group-hover:text-[#38BDF8] transition-colors">
+                Documentales de Impacto</h4>
+              <p class="text-xs text-slate-300 mt-1 line-clamp-2">Postproducción cinematográfica en DaVinci Resolve.</p>
+            </div>
+          </div>
+
+          <div
+            class="strip-card rounded-2xl overflow-hidden bg-gradient-to-br from-[#060D1A] to-[#1849FF]/30 cursor-pointer open-project-modal shadow-sm flex flex-col justify-between p-5 border border-[#38BDF8]/30 group"
+            data-project-id="arpe-audiovisual">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono font-bold tracking-widest text-[#38BDF8]">04</span>
+              <span
+                class="w-2 h-2 rounded-full bg-[#38BDF8]/40 group-hover:bg-[#38BDF8] group-hover:shadow-[0_0_8px_#38BDF8] transition-all"></span>
+            </div>
+            <div>
+              <p class="text-[11px] font-mono uppercase tracking-wider text-[#7DD3FC]">Motion Graphics</p>
+              <h4 class="text-lg font-display font-bold text-white mt-1 group-hover:text-[#38BDF8] transition-colors">
+                Animación &amp; Gráfica</h4>
+              <p class="text-xs text-slate-300 mt-1 line-clamp-2">After Effects y gráfica animada para piezas
+                institucionales.</p>
+            </div>
+          </div>
+
+          <div
+            class="strip-card rounded-2xl overflow-hidden bg-gradient-to-br from-[#0F2856] to-[#060D1A] cursor-pointer open-project-modal shadow-sm flex flex-col justify-between p-5 border border-[#38BDF8]/30 group"
+            data-project-id="arpe-audiovisual">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono font-bold tracking-widest text-[#38BDF8]">05</span>
+              <span
+                class="w-2 h-2 rounded-full bg-[#38BDF8]/40 group-hover:bg-[#38BDF8] group-hover:shadow-[0_0_8px_#38BDF8] transition-all"></span>
+            </div>
+            <div>
+              <p class="text-[11px] font-mono uppercase tracking-wider text-[#7DD3FC]">Postproducción</p>
+              <h4 class="text-lg font-display font-bold text-white mt-1 group-hover:text-[#38BDF8] transition-colors">
+                Edición Dinámica</h4>
+              <p class="text-xs text-slate-300 mt-1 line-clamp-2">Flujos de trabajo acelerados y sonido inmersivo.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SERVICE BLOCK 2: Cobertura de Eventos (Foto & Video) -->
+      <div class="mt-28 sm:mt-36 max-w-[1400px] mx-auto">
+        <div class="text-center max-w-lg mx-auto mb-14">
+          <h3 class="font-display font-bold text-4xl sm:text-6xl md:text-[68px] leading-[0.98] tracking-tight">
+            <span class="text-[#1849FF]">Cobertura</span> <span class="text-[#102244]">de Eventos</span><br />
+            <span class="text-[#1849FF]">(Foto &amp; Video)</span>
+          </h3>
+          <p class="mt-4 text-sm sm:text-base text-[#4B6382] leading-relaxed max-w-md mx-auto">
+            Registro dinámico y cinematográfico de eventos culturales, institucionales y masivos con entregas
+            ágiles optimizadas para difusión.
+          </p>
+        </div>
+
+        <!-- 5-Card Horizontal Showcase Row 2 -->
+        <div class="cards-strip px-2">
+          <div
+            class="strip-card rounded-2xl overflow-hidden bg-gradient-to-br from-[#060D1A] to-[#102244] cursor-pointer open-project-modal shadow-sm flex flex-col justify-between p-5 border border-[#38BDF8]/30 group"
+            data-project-id="arpe-coberturas">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono font-bold tracking-widest text-[#38BDF8]">01</span>
+              <span
+                class="w-2 h-2 rounded-full bg-[#38BDF8]/40 group-hover:bg-[#38BDF8] group-hover:shadow-[0_0_8px_#38BDF8] transition-all"></span>
+            </div>
+            <div>
+              <p class="text-[11px] font-mono uppercase tracking-wider text-[#7DD3FC]">Territorio &amp; Juventudes</p>
+              <h4 class="text-lg font-display font-bold text-white mt-1 group-hover:text-[#38BDF8] transition-colors">
+                Eventos Masivos</h4>
+              <p class="text-xs text-slate-300 mt-1 line-clamp-2">Cobertura territorial con foco en el calor de la
+                comunidad.</p>
+            </div>
+          </div>
+
+          <div
+            class="strip-card rounded-2xl overflow-hidden bg-gradient-to-br from-[#0A1A38] to-[#1849FF]/40 cursor-pointer open-project-modal shadow-sm flex flex-col justify-between p-5 border border-[#38BDF8]/30 group"
+            data-project-id="arpe-coberturas">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono font-bold tracking-widest text-[#38BDF8]">02</span>
+              <span
+                class="w-2 h-2 rounded-full bg-[#38BDF8]/40 group-hover:bg-[#38BDF8] group-hover:shadow-[0_0_8px_#38BDF8] transition-all"></span>
+            </div>
+            <div>
+              <p class="text-[11px] font-mono uppercase tracking-wider text-[#7DD3FC]">Fotografía de Retrato</p>
+              <h4 class="text-lg font-display font-bold text-white mt-1 group-hover:text-[#38BDF8] transition-colors">
+                Registro Institucional</h4>
+              <p class="text-xs text-slate-300 mt-1 line-clamp-2">Fotografía documental y revelado digital en Lightroom.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="strip-card rounded-2xl overflow-hidden bg-gradient-to-br from-[#102244] to-[#0A1A38] cursor-pointer open-project-modal shadow-sm flex flex-col justify-between p-5 border border-[#38BDF8]/30 group"
+            data-project-id="arpe-coberturas">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono font-bold tracking-widest text-[#38BDF8]">03</span>
+              <span
+                class="w-2 h-2 rounded-full bg-[#38BDF8]/40 group-hover:bg-[#38BDF8] group-hover:shadow-[0_0_8px_#38BDF8] transition-all"></span>
+            </div>
+            <div>
+              <p class="text-[11px] font-mono uppercase tracking-wider text-[#7DD3FC]">Tiempo Real</p>
+              <h4 class="text-lg font-display font-bold text-white mt-1 group-hover:text-[#38BDF8] transition-colors">
+                Coberturas Ágiles</h4>
+              <p class="text-xs text-slate-300 mt-1 line-clamp-2">Edición y entrega en el acto para difusión en redes
+                sociales.</p>
+            </div>
+          </div>
+
+          <div
+            class="strip-card rounded-2xl overflow-hidden bg-gradient-to-br from-[#060D1A] to-[#1849FF]/30 cursor-pointer open-project-modal shadow-sm flex flex-col justify-between p-5 border border-[#38BDF8]/30 group"
+            data-project-id="arpe-coberturas">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono font-bold tracking-widest text-[#38BDF8]">04</span>
+              <span
+                class="w-2 h-2 rounded-full bg-[#38BDF8]/40 group-hover:bg-[#38BDF8] group-hover:shadow-[0_0_8px_#38BDF8] transition-all"></span>
+            </div>
+            <div>
+              <p class="text-[11px] font-mono uppercase tracking-wider text-[#7DD3FC]">Cultura &amp; Festivales</p>
+              <h4 class="text-lg font-display font-bold text-white mt-1 group-hover:text-[#38BDF8] transition-colors">
+                Encuentros Sociales</h4>
+              <p class="text-xs text-slate-300 mt-1 line-clamp-2">Mirada cinematográfica que captura la energía real del público y cada detalle.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="strip-card rounded-2xl overflow-hidden bg-gradient-to-br from-[#0F2856] to-[#060D1A] cursor-pointer open-project-modal shadow-sm flex flex-col justify-between p-5 border border-[#38BDF8]/30 group"
+            data-project-id="arpe-coberturas">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono font-bold tracking-widest text-[#38BDF8]">05</span>
+              <span
+                class="w-2 h-2 rounded-full bg-[#38BDF8]/40 group-hover:bg-[#38BDF8] group-hover:shadow-[0_0_8px_#38BDF8] transition-all"></span>
+            </div>
+            <div>
+              <p class="text-[11px] font-mono uppercase tracking-wider text-[#7DD3FC]">Aftermovies</p>
+              <h4 class="text-lg font-display font-bold text-white mt-1 group-hover:text-[#38BDF8] transition-colors">
+                Resúmenes de Alto Impacto</h4>
+              <p class="text-xs text-slate-300 mt-1 line-clamp-2">Recap de jornadas con montaje rítmico y música
+                envolvente.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SERVICE BLOCK 3: Contenido para Redes & Storytelling -->
+      <div class="mt-28 sm:mt-36 max-w-[1400px] mx-auto">
+        <div class="text-center max-w-lg mx-auto mb-14">
+          <h3 class="font-display font-bold text-4xl sm:text-6xl md:text-[68px] leading-[0.98] tracking-tight">
+            <span class="text-[#1849FF]">Contenido</span> <span class="text-[#102244]">para Redes</span><br />
+            <span class="text-[#1849FF]">&amp; Storytelling</span>
+          </h3>
+          <p class="mt-4 text-sm sm:text-base text-[#4B6382] leading-relaxed max-w-md mx-auto">
+            Estrategia, guionado, grabación y edición de piezas dinámicas (Reels, TikToks, Shorts) diseñadas para
+            captar la atención y fidelizar audiencias.
+          </p>
+        </div>
+
+        <!-- 5-Card Horizontal Showcase Row 3 -->
+        <div class="cards-strip px-2">
+          <div
+            class="strip-card rounded-2xl overflow-hidden bg-gradient-to-br from-[#060D1A] to-[#102244] cursor-pointer open-project-modal shadow-sm flex flex-col justify-between p-5 border border-[#38BDF8]/30 group"
+            data-project-id="arpe-redes">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono font-bold tracking-widest text-[#38BDF8]">01</span>
+              <span
+                class="w-2 h-2 rounded-full bg-[#38BDF8]/40 group-hover:bg-[#38BDF8] group-hover:shadow-[0_0_8px_#38BDF8] transition-all"></span>
+            </div>
+            <div>
+              <p class="text-[11px] font-mono uppercase tracking-wider text-[#7DD3FC]">Estrategia Transmedia</p>
+              <h4 class="text-lg font-display font-bold text-white mt-1 group-hover:text-[#38BDF8] transition-colors">
+                Campañas en Redes</h4>
+              <p class="text-xs text-slate-300 mt-1 line-clamp-2">Transformación del mensaje formal en contenido fresco
+                y cercano.</p>
+            </div>
+          </div>
+
+          <div
+            class="strip-card rounded-2xl overflow-hidden bg-gradient-to-br from-[#0A1A38] to-[#1849FF]/40 cursor-pointer open-project-modal shadow-sm flex flex-col justify-between p-5 border border-[#38BDF8]/30 group"
+            data-project-id="arpe-redes">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono font-bold tracking-widest text-[#38BDF8]">02</span>
+              <span
+                class="w-2 h-2 rounded-full bg-[#38BDF8]/40 group-hover:bg-[#38BDF8] group-hover:shadow-[0_0_8px_#38BDF8] transition-all"></span>
+            </div>
+            <div>
+              <p class="text-[11px] font-mono uppercase tracking-wider text-[#7DD3FC]">Formatos Verticales</p>
+              <h4 class="text-lg font-display font-bold text-white mt-1 group-hover:text-[#38BDF8] transition-colors">
+                Reels &amp; TikToks</h4>
+              <p class="text-xs text-slate-300 mt-1 line-clamp-2">Estructuras de gancho, retención y llamados a la
+                acción claros.</p>
+            </div>
+          </div>
+
+          <div
+            class="strip-card rounded-2xl overflow-hidden bg-gradient-to-br from-[#102244] to-[#0A1A38] cursor-pointer open-project-modal shadow-sm flex flex-col justify-between p-5 border border-[#38BDF8]/30 group"
+            data-project-id="arpe-redes">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono font-bold tracking-widest text-[#38BDF8]">03</span>
+              <span
+                class="w-2 h-2 rounded-full bg-[#38BDF8]/40 group-hover:bg-[#38BDF8] group-hover:shadow-[0_0_8px_#38BDF8] transition-all"></span>
+            </div>
+            <div>
+              <p class="text-[11px] font-mono uppercase tracking-wider text-[#7DD3FC]">Storytelling</p>
+              <h4 class="text-lg font-display font-bold text-white mt-1 group-hover:text-[#38BDF8] transition-colors">
+                Historias Reales</h4>
+              <p class="text-xs text-slate-300 mt-1 line-clamp-2">Entrevistas, testimonios y relatos que conmueven y
+                generan comunidad.</p>
+            </div>
+          </div>
+
+          <div
+            class="strip-card rounded-2xl overflow-hidden bg-gradient-to-br from-[#060D1A] to-[#1849FF]/30 cursor-pointer open-project-modal shadow-sm flex flex-col justify-between p-5 border border-[#38BDF8]/30 group"
+            data-project-id="arpe-redes">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono font-bold tracking-widest text-[#38BDF8]">04</span>
+              <span
+                class="w-2 h-2 rounded-full bg-[#38BDF8]/40 group-hover:bg-[#38BDF8] group-hover:shadow-[0_0_8px_#38BDF8] transition-all"></span>
+            </div>
+            <div>
+              <p class="text-[11px] font-mono uppercase tracking-wider text-[#7DD3FC]">Identidad para Redes</p>
+              <h4 class="text-lg font-display font-bold text-white mt-1 group-hover:text-[#38BDF8] transition-colors">
+                Diseño Gráfico &amp; Feed</h4>
+              <p class="text-xs text-slate-300 mt-1 line-clamp-2">Carruseles, placas informativas y criterio visual
+                para canales oficiales.</p>
+            </div>
+          </div>
+
+          <div
+            class="strip-card rounded-2xl overflow-hidden bg-gradient-to-br from-[#0F2856] to-[#060D1A] cursor-pointer open-project-modal shadow-sm flex flex-col justify-between p-5 border border-[#38BDF8]/30 group"
+            data-project-id="arpe-redes">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono font-bold tracking-widest text-[#38BDF8]">05</span>
+              <span
+                class="w-2 h-2 rounded-full bg-[#38BDF8]/40 group-hover:bg-[#38BDF8] group-hover:shadow-[0_0_8px_#38BDF8] transition-all"></span>
+            </div>
+            <div>
+              <p class="text-[11px] font-mono uppercase tracking-wider text-[#7DD3FC]">Planificación</p>
+              <h4 class="text-lg font-display font-bold text-white mt-1 group-hover:text-[#38BDF8] transition-colors">
+                Estrategia Editorial</h4>
+              <p class="text-xs text-slate-300 mt-1 line-clamp-2">Calendarización y optimización de publicaciones según
+                métricas.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SERVICE BLOCK 4: Desarrollo Web & Diseño UX/UI -->
+      <div class="mt-28 sm:mt-36 max-w-xl mx-auto text-center">
+        <div class="inline-flex flex-col items-center">
+          <div class="flex items-center gap-3">
+            <span
+              class="w-6 h-6 rounded bg-[#38BDF8] text-white text-xs flex items-center justify-center font-bold shadow-sm">⚛</span>
+            <h3 class="font-display font-bold text-4xl sm:text-6xl md:text-[64px] tracking-tight text-[#102244] flex items-center">
+              <span class="webflow-box text-[#1849FF]">
+                <span class="webflow-handle tl"></span>
+                <span class="webflow-handle tr"></span>
+                <span class="webflow-handle bl"></span>
+                <span class="webflow-handle br"></span>
+                React.js
+              </span>
+              <span class="ml-2">&amp;</span>
+            </h3>
+          </div>
+
+          <div class="flex items-center gap-3 mt-2">
+            <span
+              class="w-6 h-6 rounded bg-[#0284C7] text-white text-xs flex items-center justify-center font-bold shadow-sm">◈</span>
+            <h3 class="font-display font-bold text-4xl sm:text-6xl md:text-[64px] tracking-tight">
+              <span class="webflow-box text-[#1849FF]">
+                <span class="webflow-handle tl"></span>
+                <span class="webflow-handle tr"></span>
+                <span class="webflow-handle bl"></span>
+                <span class="webflow-handle br"></span>
+                Diseño UX/UI
+              </span>
+            </h3>
+          </div>
+        </div>
+
+        <p class="mt-6 text-sm sm:text-base text-[#4B6382] leading-relaxed max-w-md mx-auto">
+          Desarrollo de sitios web de alto rendimiento, interfaces accesibles
+          y automatización de flujos con Inteligencia Artificial aplicada.
+        </p>
+      </div>
+    </section>
+
+    <!-- 4. "¿Curiosidad?... Explorá mi" + GIANT BACKGROUND "Work" + COBALT BLUE FOLDER -->
+    <section id="portfolio-folder-section"
+      class="relative w-full py-24 sm:py-32 px-4 overflow-hidden bg-[#F6F9FD] flex flex-col items-center justify-center">
+      <!-- Framer 3D Component CAD Tag -->
+      <div
+        class="absolute top-10 right-8 hidden md:inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#1849FF]/30 bg-white/85 backdrop-blur-md text-[#1849FF] font-mono text-[11px] shadow-sm z-30">
+        <span class="w-2 h-2 rounded-full bg-[#1849FF] animate-ping"></span>
+        ARPE • Portafolio en Producción
+      </div>
+
+      <!-- Top small prompt -->
+      <p class="relative z-20 text-xs sm:text-sm font-medium text-[#102244] mb-6">
+        ¿Buscás inspiración?... Abrí mi archivo de
+      </p>
+
+      <!-- Full-viewport background "Work" wordmark + Interactive Cobalt Blue Folder -->
+      <div class="relative w-full max-w-[1440px] mx-auto flex items-center justify-center my-2">
+        <!-- Giant Soft Blue "Work" behind the folder -->
+        <div
+          class="font-display font-bold text-[31vw] sm:text-[29vw] leading-[0.78] tracking-[-0.05em] text-[#E0EEFD] select-none pointer-events-none text-center w-full">
+          Work
+        </div>
+
+        <!-- Center Real 3D Layered Portfolio Folder (#1849FF) -->
+        <div id="portfolio-folder-trigger" data-nav="work" class="nav-trigger folder-wrapper absolute z-20"
+          title="Abrir archivo de proyectos">
+          <!-- Back layer -->
+          <img src="img/folder-icon-back.png" alt="Back folder" class="back-folder" />
+          <!-- Inner projects sheets sliding up on hover -->
+          <img src="img/projects-folder.png" alt="Projects folder sheets"
+            class="projects-folder" />
+          <!-- Front cover tilting forward on hover -->
+          <img src="img/folder-icon-front.png" alt="Front folder cover" class="front-folder" />
+        </div>
+      </div>
+
+      <!-- Bottom caption -->
+      <p class="relative z-20 text-xs sm:text-sm font-medium text-[#4B6382] mt-10">
+        O deslizá para conocer mi visión
+      </p>
+    </section>
+
+    <!-- 5. DARK STUDIO PORTRAIT SECTION: Visión Híbrida & Liderazgo de Trinchera -->
+    <section id="dark-narrative-section" class="relative w-full bg-[#060D1A] text-[#BAE6FD] overflow-hidden">
+      <!-- Studio portrait of Agustín R. Pérez -->
+      <div class="relative w-full min-h-[125vh] flex flex-col justify-between py-24 sm:py-32 px-6 sm:px-14">
+        <img data-asset="portrait" src="img/hero-arpe.webp"
+          alt="Agustín R. Pérez en producción"
+          class="absolute inset-0 w-full h-full object-cover object-center opacity-55 pointer-events-none" />
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-[#060D1A]/95 via-[#060D1A]/65 to-transparent pointer-events-none">
+        </div>
+
+        <!-- Part A: Giant Headline -->
+        <div class="relative z-10 max-w-[1380px] w-full mx-auto pt-8 pb-28 sm:pb-40">
+          <h2
+            class="font-display font-bold text-[11vw] sm:text-[10vw] leading-[0.9] tracking-[-0.04em] text-[#BAE6FD] drop-shadow-sm">
+            <span class="block">El verdadero valor</span>
+            <span class="block text-right">nace en el cruce</span>
+          </h2>
+          <p class="text-center font-display font-medium text-xl sm:text-3xl text-[#7DD3FC] mt-8 tracking-tight">
+            de la lógica técnica y la sensibilidad narrativa
+          </p>
+        </div>
+
+        <!-- Part B: Left-aligned 4 Checkmarks from PDF -->
+        <div
+          class="relative z-10 max-w-[1320px] w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pb-12">
+          <div class="lg:col-span-7 space-y-8">
+            <div>
+              <p class="text-base sm:text-xl text-[#7DD3FC] font-medium mb-2">
+                Marcas e instituciones eligen trabajar conmigo por mi
+              </p>
+              <h3 class="font-display font-bold text-5xl sm:text-7xl leading-[0.96] tracking-[-0.04em] text-[#BAE6FD]">
+                criterio híbrido +<br />
+                liderazgo en el terreno
+              </h3>
+            </div>
+
+            <!-- 4 Checkmark Bullet Points with Thin Dividers -->
+            <div
+              class="divide-y divide-[#38BDF8]/20 border-y border-[#38BDF8]/20 max-w-xl text-base sm:text-lg text-[#E2EEFF]/90">
+              <div class="py-5 flex items-start gap-4">
+                <svg class="w-5 h-5 mt-1 shrink-0 text-[#38BDF8]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                <span class="leading-relaxed"><strong class="text-white text-base sm:text-lg block mb-0.5">Mirada "Más allá de los 0 y 1":</strong> Uso el pensamiento algorítmico y técnico para
+                  ordenar procesos, pero aplico una lente creativa y cinematográfica para conectar con la gente.</span>
+              </div>
+              <div class="py-5 flex items-start gap-4">
+                <svg class="w-5 h-5 mt-1 shrink-0 text-[#38BDF8]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                <span class="leading-relaxed"><strong class="text-white text-base sm:text-lg block mb-0.5">Liderazgo Horizontal ("Hacer a la par"):</strong> Como coordinador no dirijo desde la
+                  distancia; acompaño en el terreno, rodajes, edición y coberturas codo a codo.</span>
+              </div>
+              <div class="py-5 flex items-start gap-4">
+                <svg class="w-5 h-5 mt-1 shrink-0 text-[#38BDF8]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                <span class="leading-relaxed"><strong class="text-white text-base sm:text-lg block mb-0.5">Storytelling Transmedia:</strong> Concibo cada proyecto desde la
+                  estrategia conceptual hasta su pieza final, ya sea un video de alto impacto, cobertura territorial o desarrollo web en React.js.</span>
+              </div>
+              <div class="py-5 flex items-start gap-4">
+                <svg class="w-5 h-5 mt-1 shrink-0 text-[#38BDF8]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                <span class="leading-relaxed"><strong class="text-white text-base sm:text-lg block mb-0.5">IA &amp; Criterio Pedagógico:</strong> Integro Inteligencia Artificial aplicada
+                  y flujos automatizados con la claridad comunicativa que ejerzo día a día en la docencia tecnológica.</span>
+              </div>
+            </div>
+
+            <!-- "Descubrí mi recorrido y trayectoria [->]" Pill Button -->
+            <div class="pt-2">
+              <button type="button" data-nav="about"
+                class="nav-trigger group inline-flex items-center gap-3 pl-5 pr-2 py-2 rounded-full border border-[#38BDF8]/50 bg-[#0B1E3F]/80 hover:bg-[#1849FF] hover:border-[#1849FF] hover:text-white text-xs sm:text-sm font-medium text-[#BAE6FD] transition-all shadow-md">
+                <span>Descubrí mi recorrido y trayectoria</span>
+                <span
+                  class="w-7 h-7 rounded-full bg-[#1849FF] group-hover:bg-white text-white group-hover:text-[#1849FF] flex items-center justify-center transition-colors font-bold">
+                  <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg>
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. VIBRANT ELECTRIC COBALT CTA BANNER -->
+    <section
+      class="w-full bg-gradient-to-br from-[#1644FF] via-[#1A4BFF] to-[#0D2EB5] text-white pt-20 sm:pt-28 pb-12 px-6 sm:px-12 rounded-b-[40px] relative z-20 shadow-[0_25px_60px_-15px_rgba(24,73,255,0.45)]">
+      <div class="max-w-[1380px] mx-auto space-y-14">
+        <div class="max-w-3xl">
+          <h2
+            class="font-display font-bold text-5xl sm:text-7xl md:text-[80px] leading-[0.96] tracking-[-0.04em] text-white">
+            Creemos algo<br />
+            que deje huella<br />
+            y conecte de verdad
+          </h2>
+          <p class="mt-4 text-sm sm:text-lg font-medium text-sky-100">
+            Desde iniciativas comunitarias e institucionales hasta marcas y proyectos que buscan dar un salto.
+          </p>
+        </div>
+
+        <!-- Giant Full-Width Outlined Pill Button -->
+        <button type="button"
+          class="copy-email-btn group w-full rounded-[40px] sm:rounded-full border-2 border-white/40 hover:border-white hover:bg-white/10 px-8 sm:px-14 py-7 sm:py-10 flex items-center justify-between transition-all duration-300 cursor-pointer backdrop-blur-sm">
+          <span class="text-3xl sm:text-5xl text-white group-hover:translate-x-3 transition-transform duration-300">
+            →
+          </span>
+          <div class="text-right">
+            <span class="font-display font-bold text-4xl sm:text-6xl md:text-7xl tracking-[-0.04em] text-white block">
+              Hablemos
+            </span>
+            <span class="text-xs sm:text-sm font-mono text-sky-200 block mt-1 tracking-wide">
+              arpe.estudio@gmail.com • Click para copiar
+            </span>
+          </div>
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =================================================================== -->
+  <!-- =================================================================== -->
+  <!-- VIEW 2: WORK ARCHIVE                                                -->
+  <!-- =================================================================== -->
+  <section id="view-work" class="view-section hidden pt-28 pb-24 px-6 sm:px-12 bg-[#F6F9FD]">
+    <div class="max-w-[1380px] mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-[#38BDF8]/30 pb-8 mb-10 gap-6">
+        <div>
+          <p class="text-xs font-mono uppercase tracking-widest text-[#1849FF] mb-2 font-semibold">ARPE • Portafolio
+            Creativo (2025 — 2026)</p>
+          <h1 class="text-4xl sm:text-6xl font-display font-bold tracking-tight text-[#102244]">
+            Historias que conectan <span class="text-[#1849FF]">&amp; rigor técnico</span>
+          </h1>
+        </div>
+        <div class="flex flex-wrap gap-2" id="work-filter-bar">
+          <button type="button" data-filter="all"
+            class="work-filter-btn px-4 py-1.5 rounded-full text-xs font-medium bg-[#1849FF] text-white shadow-sm">Todos</button>
+          <button type="button" data-filter="Audiovisual"
+            class="work-filter-btn px-4 py-1.5 rounded-full text-xs font-medium bg-white border border-blue-200 text-[#4B6382] hover:border-[#1849FF] hover:text-[#1849FF] transition-colors">Producción
+            Audiovisual</button>
+          <button type="button" data-filter="Web"
+            class="work-filter-btn px-4 py-1.5 rounded-full text-xs font-medium bg-white border border-blue-200 text-[#4B6382] hover:border-[#1849FF] hover:text-[#1849FF] transition-colors">Desarrollo
+            Web &amp; IA</button>
+          <button type="button" data-filter="Coberturas"
+            class="work-filter-btn px-4 py-1.5 rounded-full text-xs font-medium bg-white border border-blue-200 text-[#4B6382] hover:border-[#1849FF] hover:text-[#1849FF] transition-colors">Coberturas
+            &amp; Prensa</button>
+          <button type="button" data-filter="UX/UI"
+            class="work-filter-btn px-4 py-1.5 rounded-full text-xs font-medium bg-white border border-blue-200 text-[#4B6382] hover:border-[#1849FF] hover:text-[#1849FF] transition-colors">Diseño
+            UX/UI</button>
+        </div>
+      </div>
+
+      <!-- Banner de Estado: PROXIMAMENTE -->
+      <div
+        class="mb-10 p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-[#102244] via-[#0A1A38] to-[#060D1A] text-white border border-[#38BDF8]/40 shadow-2xl relative overflow-hidden">
+        <div class="relative z-10 max-w-2xl space-y-4">
+          <div
+            class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#1849FF] text-white font-mono text-xs font-bold tracking-wider shadow-md">
+            <span class="w-2 h-2 rounded-full bg-sky-300 animate-ping"></span>
+            PRÓXIMAMENTE
+          </div>
+          <h2 class="text-3xl sm:text-5xl font-display font-bold tracking-tight text-[#BAE6FD]">
+            Curaduría de casos y producciones en curso
+          </h2>
+          <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+            Seleccionando los casos más representativos de Agustín R. Pérez y el estudio creativo ARPE (@arpe.ar).
+            Muy pronto vas a poder explorar coberturas en tiempo real, producciones audiovisuales, aplicaciones en React.js
+            y piezas de impacto transmedia.
+          </p>
+          <div class="pt-2 flex flex-wrap items-center gap-3">
+            <button type="button"
+              class="copy-email-btn px-5 py-2.5 rounded-full bg-[#1849FF] hover:bg-[#0F3BF0] text-white font-medium text-xs tracking-wide transition-colors shadow-lg">
+              Contactar por proyectos →
+            </button>
+            <a href="https://instagram.com/arpe.ar" target="_blank" rel="noopener noreferrer"
+              class="px-5 py-2.5 rounded-full border border-sky-400/40 text-sky-200 hover:text-white hover:border-sky-300 font-medium text-xs tracking-wide transition-colors">
+              Instagram: @arpe.ar ↗
+            </a>
+          </div>
+        </div>
+        <div class="absolute -right-10 -bottom-10 w-96 h-96 bg-[#1849FF]/20 rounded-full blur-3xl pointer-events-none">
+        </div>
+      </div>
+
+      <div id="projects-grid-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6"></div>
+
+      <div class="mt-12 text-center">
+        <button type="button" data-nav="home"
+          class="nav-trigger px-6 py-3 rounded-full bg-[#1849FF] text-white text-xs font-medium uppercase tracking-wider hover:bg-[#0F3BE6] transition-colors shadow-md">
+          ← Volver al Inicio
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================================================================== -->
+  <!-- VIEW 3: ABOUT VIEW (DOSSIER INTEGRAL AGUSTÍN R. PÉREZ - ARPE)       -->
+  <!-- =================================================================== -->
+  <section id="view-about" class="view-section hidden pt-28 pb-24 px-6 sm:px-12 bg-[#F6F9FD]">
+    <div class="max-w-5xl mx-auto space-y-14">
+      <div class="border-b border-[#38BDF8]/30 pb-10">
+        <p class="text-xs font-mono uppercase tracking-widest text-[#1849FF] mb-2 font-semibold">Técnico Universitario
+          en Programación (UTN) &bull; Filmmaker &bull; La Matanza, Buenos Aires</p>
+        <h1 class="text-4xl sm:text-6xl font-display font-bold tracking-tight text-[#102244] leading-[1.05]">
+          Hola, soy Agustín R. Pérez. Combino lógica técnica, sensibilidad audiovisual y <span
+            class="text-[#1849FF]">comunicación estratégica.</span>
+        </h1>
+        <div class="mt-6 space-y-4 text-base sm:text-lg text-[#4B6382] leading-relaxed">
+          <p>
+            Tengo 24 años y me apasiona transformar ideas en historias que conectan, ya sea a través de una cámara, un
+            diseño o una línea de código. Me formé como <strong>Técnico Universitario en Programación en la UTN</strong>
+            (Facultad Regional Avellaneda / Sede CUDI, egresado en 2025), pero mi curiosidad siempre me llevó a mirar
+            más allá de los ceros y unos. Encontré mi verdadero lugar cruzando la estructura y el rigor de las ciencias
+            de la computación con la plasticidad narrativa del filmmaking, la fotografía y el diseño UX/UI.
+          </p>
+          <p>
+            Actualmente me desempeño como <strong>Coordinador de Comunicación y Prensa en la Secretaría de Juventudes de
+              La Matanza</strong>, liderando equipos multidisciplinarios para generar contenidos ágiles y cercanos que
+            conecten políticas públicas con miles de jóvenes. Al mismo tiempo, soy <strong>Profesor de Programación Web
+              y Diseño UX/UI en el CFP N° 418</strong>, donde enseño maquetación y criterio visual desde una pedagogía
+            práctica orientada a proyectos reales.
+          </p>
+          <p>
+            De forma independiente, construyo mi propia productora y agencia creativa: <strong
+              class="text-[#102244]">ARPE</strong> (<a href="https://instagram.com/arpe.ar" target="_blank"
+              rel="noopener noreferrer" class="text-[#1849FF] underline">@arpe.ar</a>), brindando soluciones integrales
+            de producción audiovisual, coberturas en tiempo real y desarrollo web moderno. Emprendo desde los 16 años,
+            combinando compromiso social, trabajo colectivo y herramientas de vanguardia con Inteligencia Artificial.
+          </p>
+        </div>
+      </div>
+
+      <!-- Credentials & Roles Bar -->
+      <div class="grid grid-cols-2 sm:grid-cols-5 gap-4 text-center">
+        <div class="p-5 rounded-2xl bg-white border border-blue-100 shadow-sm">
+          <div class="text-2xl sm:text-3xl font-display font-bold text-[#1849FF]">UTN</div>
+          <div class="text-xs text-slate-500 mt-1">Técnico en Programación (2025)</div>
+        </div>
+        <div class="p-5 rounded-2xl bg-white border border-blue-100 shadow-sm">
+          <div class="text-2xl sm:text-3xl font-display font-bold text-[#1849FF]">Prensa</div>
+          <div class="text-xs text-slate-500 mt-1">Coord. Juventudes La Matanza</div>
+        </div>
+        <div class="p-5 rounded-2xl bg-white border border-blue-100 shadow-sm">
+          <div class="text-2xl sm:text-3xl font-display font-bold text-[#1849FF]">Docente</div>
+          <div class="text-xs text-slate-500 mt-1">Profesor Web &amp; UX/UI CFP 418</div>
+        </div>
+        <div class="p-5 rounded-2xl bg-white border border-blue-100 shadow-sm">
+          <div class="text-2xl sm:text-3xl font-display font-bold text-[#1849FF]">ARPE</div>
+          <div class="text-xs text-slate-500 mt-1">Filmmaker &amp; Director (@arpe.ar)</div>
+        </div>
+        <div class="p-5 rounded-2xl bg-white border border-blue-100 shadow-sm col-span-2 sm:col-span-1">
+          <div class="text-2xl sm:text-3xl font-display font-bold text-[#1849FF]">8+ años</div>
+          <div class="text-xs text-slate-500 mt-1">ADN Emprendedor &amp; Digital</div>
+        </div>
+      </div>
+
+      <div class="p-8 rounded-2xl bg-white border border-blue-100 shadow-sm space-y-4">
+        <h3 class="text-xl font-display font-bold text-[#102244]">Valores y Lado Humano</h3>
+        <p class="text-sm text-[#4B6382] leading-relaxed">
+          <strong>El Hilo Conductor:</strong> Mi motor es darle sentido a las ideas para generar una emoción real en quien está del otro lado. Encuentro inspiración en la calle, en los recorridos urbanos y en el contacto directo con la gente.<br /><br />
+          Creo profundamente en la educación, el trabajo colectivo y la comunicación como herramientas concretas de transformación y crecimiento para las juventudes y la comunidad trabajadora.
+        </p>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-blue-100">
+        <div class="flex flex-wrap items-center gap-3">
+          <a href="dossier-agustin-perez-arpe.pdf" download="Dossier-Agustin-Perez-ARPE.pdf"
+            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#1849FF] hover:bg-[#0F3BF0] text-white text-xs font-semibold shadow-md transition-all cursor-pointer">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            </svg>
+            Descargar Dossier Completo (PDF)
+          </a>
+          <a href="https://instagram.com/agustinrperez" target="_blank" rel="noopener noreferrer"
+            class="text-xs font-mono text-[#1849FF] hover:underline px-3 py-2">
+            Instagram: @agustinrperez ↗
+          </a>
+        </div>
+        <button type="button" data-nav="home"
+          class="nav-trigger px-6 py-2.5 rounded-full bg-slate-100 hover:bg-[#1849FF] hover:text-white text-slate-700 text-xs font-medium transition-colors">
+          ← Volver al Inicio
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================================================================== -->
+  <!-- 7. DARK 3D CHARACTER ILLUSTRATION FOOTER                            -->
+  <!-- =================================================================== -->
+  <footer
+    class="relative w-full h-[88vh] min-h-[560px] bg-[#050C1A] overflow-hidden flex flex-col justify-between px-6 sm:px-12 py-12 -mt-6 z-10">
+    <!-- Video footer Agustín R. Pérez with Poster Fallback & Metadata Preload -->
+    <video autoplay loop muted playsinline preload="metadata" poster="img/hero-arpe.webp"
+      class="video-embed absolute inset-0 w-full h-full object-cover object-center opacity-85 pointer-events-none">
+      <source src="vids/footer-video-arpe.mp4" type="video/mp4" />
+    </video>
+    <div class="absolute inset-0 bg-gradient-to-t from-[#050C1A] via-transparent to-[#050C1A]/70 pointer-events-none">
+    </div>
+
+    <!-- Right-side stack list -->
+    <div class="relative z-10 w-full flex justify-end pt-10 sm:pt-16">
+      <div class="text-right space-y-1">
+        <p class="text-[11px] text-[#4B6382] mb-2 font-mono uppercase tracking-wider">Herramientas &amp; Stack:</p>
+        <p class="text-xs sm:text-sm font-medium text-[#BAE6FD]">HTML5 • CSS3 • JavaScript</p>
+        <p class="text-xs sm:text-sm font-medium text-[#BAE6FD]">React.js • TailwindCSS</p>
+        <p class="text-xs sm:text-sm font-medium text-[#BAE6FD]">DaVinci Resolve • Premiere Pro</p>
+        <p class="text-xs sm:text-sm font-medium text-[#BAE6FD]">After Effects • Photoshop</p>
+        <p class="text-xs sm:text-sm font-medium text-[#BAE6FD]">Agentes IA • Automatización</p>
+      </div>
+    </div>
+
+    <!-- Bottom Giant Split "Agustín [ARPE] Pérez" -->
+    <div class="relative z-10 w-full mt-auto">
+      <div class="w-full flex items-baseline justify-between gap-4">
+        <span class="billboard-title text-[14vw] sm:text-[13.5vw] leading-[0.8] tracking-tighter text-[#BAE6FD]">
+          Agustín
+        </span>
+        <span class="billboard-title text-[14vw] sm:text-[13.5vw] leading-[0.8] tracking-tighter text-[#BAE6FD]">
+          Pérez
+        </span>
+      </div>
+
+      <div class="w-full flex flex-wrap items-center justify-between gap-4 pt-3 text-xs sm:text-sm font-medium">
+        <div>
+          <span class="text-[#7DD3FC]">Coordinador de Comunicación &amp; Desarrollador Web</span>
+          <span class="text-[#4B6382] ml-1">2026</span>
+        </div>
+        <div>
+          <span class="text-[#7DD3FC]">ARPE Estudio Audiovisual &amp; Digital</span>
+          <span class="text-[#4B6382] ml-1">[@arpe.ar]</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =================================================================== -->
+  <!-- CASE STUDY MODAL (ACCESSIBLE DIALOG)                                -->
+  <!-- =================================================================== -->
+  <div id="case-study-modal"
+    role="dialog" aria-modal="true" aria-labelledby="modal-title"
+    class="fixed inset-0 z-[90] hidden items-center justify-center p-4 bg-[#040B1A]/80 backdrop-blur-md">
+    <div class="relative w-full max-w-2xl rounded-3xl bg-white border border-blue-200 shadow-2xl overflow-hidden">
+      <div class="p-5 border-b border-blue-100 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="px-3 py-0.5 rounded-full bg-[#1849FF] text-white font-mono text-xs font-bold">ARPE • Portafolio</span>
+          <span id="modal-subtitle" class="text-xs font-mono uppercase text-slate-500">ARPE • Agustín R. Pérez</span>
+          <span id="modal-year" class="px-2 py-0.5 rounded-full bg-blue-100 text-[#1849FF] font-mono text-xs font-semibold">2026</span>
+        </div>
+        <button type="button" id="close-modal-btn" aria-label="Cerrar modal"
+          class="w-8 h-8 rounded-full bg-slate-100 hover:bg-[#1849FF] hover:text-white flex items-center justify-center text-sm font-bold transition-colors">✕</button>
+      </div>
+      <div class="p-6 space-y-5">
+        <div class="h-52 rounded-2xl overflow-hidden bg-[#071124] relative">
+          <img id="modal-img" data-asset="fintech" src="img/projects/home-work1.jpg" alt="Vista previa del proyecto"
+            class="w-full h-full object-cover" />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-[#060D1A]/80 via-transparent to-transparent flex items-end p-4">
+            <span
+              class="px-3 py-1 rounded-full bg-[#1849FF] text-white font-mono text-xs font-bold tracking-wide shadow-md">CASO
+              DE ESTUDIO</span>
+          </div>
+        </div>
+        <h3 id="modal-title" class="text-3xl font-display font-bold text-slate-900">Producción Audiovisual</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs sm:text-sm">
+          <div class="p-4 rounded-xl bg-[#F6F9FD]">
+            <span class="font-mono text-[10px] uppercase text-[#1849FF] font-bold">Enfoque &amp; Descripción</span>
+            <p id="modal-challenge" class="mt-1 text-slate-600 leading-relaxed"></p>
+          </div>
+          <div class="p-4 rounded-xl bg-[#F6F9FD]">
+            <span class="font-mono text-[10px] uppercase text-[#1849FF] font-bold">Rol / Área</span>
+            <p id="modal-role" class="mt-1 text-slate-600 leading-relaxed"></p>
+          </div>
+        </div>
+        <div id="modal-services" class="flex flex-wrap gap-2"></div>
+      </div>
+      <div class="px-6 py-4 bg-slate-50 border-t border-blue-100 flex items-center justify-between">
+        <button type="button" class="copy-email-btn text-xs font-medium text-[#1849FF] hover:underline">Consultar por
+          este servicio →</button>
+        <button type="button" id="modal-Done-btn"
+          class="px-4 py-1.5 rounded-full bg-[#1849FF] text-white text-xs font-medium">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =================================================================== -->
+  <!-- JAVASCRIPT ENGINE                                                   -->
+  <!-- =================================================================== -->
+  <script src="app.js" defer></script>
+</body>
+
+</html>
