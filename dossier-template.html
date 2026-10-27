@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Agustín R. Pérez | Dossier & Presentación Profesional</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: A4;
+      margin: 0;
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #060D1A;
+      color: #E0EEFD;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      line-height: 1.5;
+    }
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      height: 297mm;
+      padding: 16mm 18mm;
+      position: relative;
+      background: #060D1A;
+      overflow: hidden;
+      page-break-after: always;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Ambient glow elements */
+    .glow-cyan {
+      position: absolute;
+      top: -100px;
+      right: -80px;
+      width: 380px;
+      height: 380px;
+      background: radial-gradient(circle, rgba(24, 73, 255, 0.35) 0%, rgba(56, 189, 248, 0.15) 50%, transparent 75%);
+      filter: blur(40px);
+      pointer-events: none;
+    }
+    .glow-blue {
+      position: absolute;
+      bottom: -120px;
+      left: -80px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(22, 68, 255, 0.28) 0%, rgba(6, 13, 26, 0) 70%);
+      filter: blur(50px);
+      pointer-events: none;
+    }
+
+    /* Outer border frame */
+    .outer-frame {
+      position: absolute;
+      inset: 8mm;
+      border: 1px solid rgba(56, 189, 248, 0.22);
+      border-radius: 12px;
+      pointer-events: none;
+    }
+
+    /* Header */
+    .doc-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 5mm;
+      border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+      position: relative;
+      z-index: 10;
+    }
+    .brand-mark {
+      font-size: 15px;
+      font-weight: 800;
+      color: #BAE6FD;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .brand-pill {
+      background: #1849FF;
+      color: #fff;
+      font-size: 9px;
+      font-weight: 900;
+      padding: 3px 7px;
+      border-radius: 4px;
+      letter-spacing: 0.05em;
+    }
+    .doc-date {
+      font-size: 11px;
+      color: #7DD3FC;
+      font-family: monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* Footer */
+    .doc-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 4mm;
+      border-top: 1px solid rgba(56, 189, 248, 0.18);
+      font-size: 10px;
+      color: #7DD3FC;
+      position: relative;
+      z-index: 10;
+    }
+    .doc-footer a {
+      color: #38BDF8;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* Headings */
+    h1 {
+      font-size: 32px;
+      font-weight: 800;
+      line-height: 1.08;
+      color: #BAE6FD;
+      letter-spacing: -0.03em;
+    }
+    h1 span.highlight {
+      color: #38BDF8;
+    }
+    h2 {
+      font-size: 17px;
+      font-weight: 800;
+      color: #BAE6FD;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    h2::before {
+      content: "";
+      display: inline-block;
+      width: 4px;
+      height: 16px;
+      background: #1849FF;
+      border-radius: 2px;
+    }
+    .subtitle {
+      font-size: 13px;
+      font-weight: 600;
+      color: #7DD3FC;
+      margin-top: 4px;
+      letter-spacing: -0.01em;
+    }
+
+    /* Profile Hero Bar */
+    .profile-banner {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      background: rgba(16, 34, 68, 0.55);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      padding: 14px 18px;
+      border-radius: 12px;
+      margin: 14px 0 16px;
+      position: relative;
+      z-index: 10;
+    }
+    .avatar-img {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #38BDF8;
+      box-shadow: 0 0 16px rgba(56, 189, 248, 0.35);
+      flex-shrink: 0;
+    }
+    .banner-text {
+      flex: 1;
+    }
+    .contact-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 6px;
+    }
+    .contact-badge {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(24, 73, 255, 0.22);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      padding: 3px 8px;
+      border-radius: 9999px;
+      font-size: 10px;
+      color: #BAE6FD;
+      font-family: monospace;
+    }
+
+    /* Paragraphs */
+    p.lead {
+      font-size: 12.5px;
+      line-height: 1.58;
+      color: #CBD5E1;
+      margin-bottom: 12px;
+    }
+    p.lead strong {
+      color: #FFFFFF;
+      font-weight: 700;
+    }
+
+    /* Grids & Cards */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 8px;
+      position: relative;
+      z-index: 10;
+    }
+    .card {
+      background: rgba(10, 26, 56, 0.5);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      border-radius: 10px;
+      padding: 12px 14px;
+    }
+    .card-title {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #BAE6FD;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 4px;
+    }
+    .card-meta {
+      font-size: 10px;
+      color: #38BDF8;
+      font-family: monospace;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+    }
+    .card-desc {
+      font-size: 11px;
+      line-height: 1.48;
+      color: #94A3B8;
+    }
+
+    /* Metrics Strip */
+    .metrics-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin: 12px 0 16px;
+      position: relative;
+      z-index: 10;
+    }
+    .metric-box {
+      background: rgba(16, 34, 68, 0.7);
+      border: 1px solid rgba(56, 189, 248, 0.22);
+      border-radius: 8px;
+      padding: 9px 10px;
+      text-align: center;
+    }
+    .metric-num {
+      font-size: 18px;
+      font-weight: 800;
+      color: #38BDF8;
+      line-height: 1.1;
+    }
+    .metric-label {
+      font-size: 9.5px;
+      color: #94A3B8;
+      margin-top: 2px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    /* Skills tags */
+    .skills-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 6px;
+    }
+    .skill-tag {
+      font-size: 9.5px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(186, 230, 253, 0.2);
+      color: #BAE6FD;
+      padding: 2.5px 7px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+
+    /* Quote Callout */
+    .statement-quote {
+      background: linear-gradient(135deg, rgba(24, 73, 255, 0.22) 0%, rgba(10, 26, 56, 0.6) 100%);
+      border-left: 3px solid #38BDF8;
+      padding: 12px 16px;
+      border-radius: 0 8px 8px 0;
+      margin: 12px 0;
+      font-size: 12px;
+      line-height: 1.5;
+      color: #E0F2FE;
+      font-style: italic;
+      position: relative;
+      z-index: 10;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= PAGE 1 ================= -->
+  <div class="page">
+    <div class="glow-cyan"></div>
+    <div class="glow-blue"></div>
+    <div class="outer-frame"></div>
+
+    <!-- Header -->
+    <header class="doc-header">
+      <div class="brand-mark">
+        <span class="brand-pill">ARPE</span>
+        <span>Agustín R. Pérez</span>
+      </div>
+      <div class="doc-date">Dossier Profesional 2026</div>
+    </header>
+
+    <!-- Main Content Page 1 -->
+    <div style="position: relative; z-index: 10; margin-top: 8px;">
+      
+      <!-- Title -->
+      <div>
+        <h1>Historias que conectan <br><span class="highlight">&amp; tecnología sólida.</span></h1>
+        <p class="subtitle">Filmmaker &bull; Técnico en Programación (UTN) &bull; Coordinador de Comunicación y Prensa</p>
+      </div>
+
+      <!-- Banner Profile -->
+      <div class="profile-banner">
+        <img class="avatar-img" src="img/hero-arpe.webp" alt="Agustín R. Pérez">
+        <div class="banner-text">
+          <div style="font-size: 16px; font-weight: 800; color: #FFFFFF;">Agustín Reinaldo Pérez</div>
+          <div style="font-size: 11px; color: #7DD3FC; margin-top: 1px;">24 años &bull; La Matanza, Buenos Aires, Argentina</div>
+          <div class="contact-pills">
+            <span class="contact-badge">✉ arpe.estudio@gmail.com</span>
+            <span class="contact-badge">ig: @arpe.ar</span>
+            <span class="contact-badge">ig: @agustinrperez</span>
+            <span class="contact-badge">web: arpe.ar</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Metrics -->
+      <div class="metrics-bar">
+        <div class="metric-box">
+          <div class="metric-num">UTN</div>
+          <div class="metric-label">Prog. Egresado 2025</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-num">Prensa</div>
+          <div class="metric-label">Juventudes La Matanza</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-num">Docente</div>
+          <div class="metric-label">Web & UX/UI CFP 418</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-num">+8 Años</div>
+          <div class="metric-label">Trayectoria Creativa</div>
+        </div>
+      </div>
+
+      <!-- Letter of Presentation -->
+      <section style="margin-top: 4px;">
+        <h2>Carta de Presentación</h2>
+        <p class="lead">
+          Hola. Soy <strong>Agustín R. Pérez</strong>. Me apasiona transformar ideas en piezas con impacto real, ya sea a través de un lente, una estrategia comunicacional o una línea de código. 
+        </p>
+        <p class="lead">
+          Me gradué como <strong>Técnico Universitario en Programación en la UTN</strong> (Centro Universitario de Innovación - CUDI, 2025). Sin embargo, mi búsqueda profesional siempre apuntó más allá de la pantalla: encontré mi mayor diferencial cruzando el rigor analítico de las ciencias de la computación con la sensibilidad estética y narrativa del <strong>filmmaking</strong> y el <strong>diseño visual</strong>.
+        </p>
+        <p class="lead">
+          Actualmente me desempeño como <strong>Coordinador de Comunicación y Prensa en la Secretaría de Juventudes de La Matanza</strong>, donde conduzco equipos multidisciplinarios en el registro y difusión de políticas públicas, festivales y coberturas de alto impacto territorial. A la par, soy <strong>Profesor de Programación Web y Diseño UX/UI en el CFP N° 418</strong>, capacitando a jóvenes y adultos desde una pedagogía práctica, moderna y orientada a proyectos.
+        </p>
+        <p class="lead">
+          A través de mi estudio <strong>ARPE</strong> (<a href="https://instagram.com/arpe.ar" style="color: #38BDF8; text-decoration: none;">@arpe.ar</a>), brindo soluciones integrales de producción audiovisual, cobertura fotográfica de eventos en tiempo real y desarrollo web moderno a instituciones, empresas y proyectos que buscan comunicar con fuerza y autenticidad.
+        </p>
+      </section>
+
+      <!-- Statement Box -->
+      <div class="statement-quote">
+        “El verdadero valor nace en el cruce: una estética cinematográfica cuidada que emociona, respaldada por una estructura técnica impecable que responde.”
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="doc-footer">
+      <div>ARPE Estudio Creativo &bull; La Matanza, Buenos Aires</div>
+      <div>Página 1 de 2</div>
+    </footer>
+  </div>
+
+  <!-- ================= PAGE 2 ================= -->
+  <div class="page">
+    <div class="glow-cyan"></div>
+    <div class="glow-blue"></div>
+    <div class="outer-frame"></div>
+
+    <!-- Header -->
+    <header class="doc-header">
+      <div class="brand-mark">
+        <span class="brand-pill">ARPE</span>
+        <span>Servicios &amp; Soluciones Creativas</span>
+      </div>
+      <div class="doc-date">Dossier Profesional 2026</div>
+    </header>
+
+    <!-- Main Content Page 2 -->
+    <div style="position: relative; z-index: 10; margin-top: 6px;">
+
+      <!-- Areas of Specialty -->
+      <section>
+        <h2>Servicios & Áreas de Intervención</h2>
+        <div class="cards-grid">
+          
+          <div class="card">
+            <div class="card-title">
+              <span>Producción Audiovisual</span>
+              <span style="color: #38BDF8; font-size: 11px;">01</span>
+            </div>
+            <div class="card-meta">Institucionales &bull; Comerciales &bull; Documentales</div>
+            <div class="card-desc">
+              Realización integral desde guion y scouting hasta rodaje cinematográfico, dirección de fotografía, colorimetría en DaVinci Resolve y posproducción de sonido envolvente.
+            </div>
+            <div class="skills-row">
+              <span class="skill-tag">DaVinci Resolve</span>
+              <span class="skill-tag">Premiere Pro</span>
+              <span class="skill-tag">After Effects</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-title">
+              <span>Cobertura de Eventos</span>
+              <span style="color: #38BDF8; font-size: 11px;">02</span>
+            </div>
+            <div class="card-meta">Tiempo Real &bull; Foto & Video &bull; Prensa</div>
+            <div class="card-desc">
+              Registro dinámico de eventos culturales, actos institucionales y masivos con foco en la cercanía de la gente y esquemas de entrega ágil para difusión inmediata en redes.
+            </div>
+            <div class="skills-row">
+              <span class="skill-tag">Fotografía</span>
+              <span class="skill-tag">Lightroom</span>
+              <span class="skill-tag">Social Media Reels</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-title">
+              <span>Desarrollo Web & UX/UI</span>
+              <span style="color: #38BDF8; font-size: 11px;">03</span>
+            </div>
+            <div class="card-meta">Sitios de Alto Impacto &bull; React.js</div>
+            <div class="card-desc">
+              Arquitecturas web responsivas, código limpio, accesibilidad y máxima optimización de velocidad. Integración de animaciones sutiles y diseño centrado en el usuario.
+            </div>
+            <div class="skills-row">
+              <span class="skill-tag">HTML5 / CSS3</span>
+              <span class="skill-tag">JavaScript ES6+</span>
+              <span class="skill-tag">React.js</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-title">
+              <span>Estrategia & Flujos IA</span>
+              <span style="color: #38BDF8; font-size: 11px;">04</span>
+            </div>
+            <div class="card-meta">Automatización &bull; Storytelling Digital</div>
+            <div class="card-desc">
+              Planificación comunicacional estratégica con lenguaje adaptado a audiencias contemporáneas. Incorporación de inteligencia artificial en flujos de investigación y producción.
+            </div>
+            <div class="skills-row">
+              <span class="skill-tag">Automatización</span>
+              <span class="skill-tag">Agentes IA</span>
+              <span class="skill-tag">Comunicación Joven</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Roles & Experience Breakdown -->
+      <section style="margin-top: 14px;">
+        <h2>Experiencia de Conducción y Compromiso</h2>
+        <div style="background: rgba(16, 34, 68, 0.45); border: 1px solid rgba(56, 189, 248, 0.2); border-radius: 10px; padding: 12px 14px;">
+          <div style="display: flex; justify-content: space-between; align-items: baseline;">
+            <div style="font-size: 12.5px; font-weight: 700; color: #BAE6FD;">Liderazgo Operativo &bull; "Hacer a la par"</div>
+            <span style="font-size: 10px; color: #38BDF8; font-family: monospace;">2025 — Actualidad</span>
+          </div>
+          <p style="font-size: 11.5px; line-height: 1.5; color: #CBD5E1; margin-top: 6px;">
+            Mi experiencia coordinando equipos de comunicación me formó en un liderazgo cercano y colaborativo. No dirijo desde un escritorio distante: planifico la estrategia, pero también estoy en el terreno con la cámara en mano, compartiendo el rodaje, la edición y la resolución rápida de imprevistos con mi equipo.
+          </p>
+          <p style="font-size: 11.5px; line-height: 1.5; color: #CBD5E1; margin-top: 6px;">
+            Creo firmemente en la educación, el trabajo colectivo y la comunicación como herramientas concretas de crecimiento para nuestra comunidad.
+          </p>
+        </div>
+      </section>
+
+      <!-- Contact Banner Call To Action -->
+      <section style="margin-top: 14px;">
+        <div style="background: linear-gradient(135deg, rgba(24, 73, 255, 0.3) 0%, rgba(6, 13, 26, 0.9) 100%); border: 1px solid rgba(56, 189, 248, 0.4); border-radius: 12px; padding: 14px 18px; display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <div style="font-size: 15px; font-weight: 800; color: #FFFFFF; letter-spacing: -0.02em;">¿Listo para iniciar tu próximo proyecto?</div>
+            <div style="font-size: 11px; color: #7DD3FC; margin-top: 2px;">Coordinemos una reunión y démosle forma a tu historia.</div>
+          </div>
+          <div style="text-align: right; font-family: monospace; font-size: 11px; color: #BAE6FD;">
+            <div style="font-weight: 700; color: #38BDF8;">arpe.estudio@gmail.com</div>
+            <div style="font-size: 10px; color: #94A3B8; margin-top: 2px;">Instagram: @arpe.ar &bull; @agustinrperez</div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="doc-footer">
+      <div>Portafolio web online disponible en: <a href="https://arpe.ar">arpe.ar</a></div>
+      <div>Página 2 de 2</div>
+    </footer>
+  </div>
+
+</body>
+</html>
